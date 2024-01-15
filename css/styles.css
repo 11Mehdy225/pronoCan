@@ -1,0 +1,532 @@
+ @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: auto;
+}
+/*police declarer a tout le contenu de notre page*/
+body{
+  font-family: 'Roboto', sans-serif;
+}
+
+/**** NAVBAR ****/
+nav {
+  background:transparent;
+  display: flex;
+  justify-content: space-evenly;
+  position: fixed;
+  width: 100%;
+  align-items: center;
+  font-size: calc(0.5rem + 1.5vw);
+  top: 0;
+  z-index: 3;
+  margin-left: 45px;
+}
+/*le logo du site*/
+nav img {
+  width: 250px;
+  height: 200px;
+}
+/*elle est sous forme de liste non ordonnée*/
+nav ul {
+  display: flex;
+  justify-content: space-evenly;
+  width: 60%;
+}
+/*le bouton pour le compte contenu dans le barre de navigation*/
+li button {
+  padding: 10px 10px;
+  font-family: 'Roboto', sans-serif;
+  font-size: large;
+  color: rgb(244, 237, 237);
+  background-color: rgb(237, 169, 41);
+  border-radius: 10px;
+  width: 200px;
+  border: none;
+  margin-left: 70px;
+  cursor: pointer;
+}
+/*on lui supprime les styles*/
+li {
+    list-style: none;
+  }
+  /*les liens hypertextes*/
+ li a {
+    color:black;
+    font-size: 20px;
+    text-decoration: none;
+    transition: transform 0.3s;
+    font-family: 'Roboto', sans-serif;
+    padding: 10px 40px;
+    border-radius: 10px;
+    text-transform: capitalize;
+    cursor: pointer;
+  }
+  /*les liens au survol*/
+  li a:hover {
+    color:white;
+    background-color: rgb(45, 222, 45);
+    transform: scale(10.1);
+     /*text-decoration: underline;
+     text-decoration-color:rgb(45, 222, 45);
+     text-decoration-thickness: 4px;*/
+  }
+
+
+  #icons {
+    cursor: pointer;
+    display: none;
+  }
+
+  @media (max-width: 650px) {
+    #icons {
+      display: block;
+    }
+    #icons:before {
+      content: "\2630";
+    }
+    .active #icons:before {
+      content: "\2715";
+    }
+    nav ul {
+      position: fixed;
+      left: -100%;
+      top: 5%;
+      flex-direction: column;
+      background: orange;
+      width: 100%;
+      text-align: center;
+      transition: 0.25s;
+    }
+    nav li {
+      padding: 3px 0;
+    }
+    nav li:hover {
+      background:transparent;
+    }
+    nav.active ul {
+      left: 0;
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+ /*********************************************************************/
+  
+  /*le main*/
+  /*first partie du main*/
+/*section1*/
+/*cette div contient plusieurs div enfant pour 1_animation 2_statdejeu 3accesaulive 4pronosticsdujour*/
+.les_stats {
+  display: flex;
+  margin-top: 200px;
+  justify-content: center;
+}
+/*la div pour la video*/
+ .animation  {
+      width:150px ;
+      height:251px;
+      border-radius:10px;
+      box-shadow: 1px 1px 30px rgba(0,0,0,.05);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+}
+ video {
+  width: 150px;
+  height: 251px;
+}
+/*les statistique et pronosctics du jour*/
+.statistique , .prono_du_jour {
+  width:451px ;/*451*/
+  height: 251px;
+  border-radius: 10px;
+  margin-left: 20px;
+  box-shadow: 1px 1px 30px rgba(0,0,0,.05);
+}
+/*le live*/
+ .le_live {
+  width:150px ;
+  height: 251px;
+  border-radius: 10px;
+  margin-left: 20px;
+  box-shadow: 1px 1px 30px rgba(0,0,0,.05);
+  position: relative;
+}
+/*image du live*/
+.image_live {
+  width: 100%;
+  height: 100%;
+  background-image: url(/images/le_live.jpg);
+  background-size: cover;
+  transition: filter 0.5s ease;
+  border-radius: 10px;
+}
+/*le texte du live*/
+.text_live {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  transition: text-shadow 0.5s ease;
+}
+.text_live a {
+  color: white;
+  text-decoration: none;
+}
+/*au survol*/
+.le_live:hover .image_live {
+  filter: blur(3px);
+}
+.le_live:hover .text_live {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+/*les */
+.statistique {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:space-evenly;
+  color: white;
+}
+.statistique div {
+  width: 700px;
+}
+
+.stat1 ,.participation ,.join_group {
+  display: flex;
+  justify-content:center;
+  text-transform: uppercase;
+}
+
+.nombre_prono {
+  font-size: 30px; 
+  
+}
+.periode {
+  margin-top: 20px;
+  margin-left: 10px;
+  margin-right: 120px;
+}
+.participation , .join_group{
+  display: flex;
+  justify-content: space-evenly;
+}
+ .taux , .nombre_participant {
+  font-size: 25px;
+ }
+
+ .join_group a {
+  text-decoration: none;
+  text-transform: capitalize;
+  color: white;
+ }
+
+ /*la div pour les pronostics de la page d'accueil*/
+
+ .prono_du_jour {
+  display: flex;
+  flex-direction: column;
+  background: url(/images/bg-orange.png);
+ }
+
+ .prono_du_jour h1 {
+  margin-top: 5px;
+  margin-left: 5px;
+ }
+
+.prono_disponible {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start; 
+  width:445px;
+  height:200px;
+  border-radius: 10px;
+  padding-top:15px ;
+  margin: 5px auto;
+  box-shadow: 10px 10px 34px rgba(0,0,0,.05);
+}
+.equipe_home  , .equipe_away{
+margin-left: 15px;
+}
+
+.options1{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin:2px 5px ;
+  height: 25px;
+  width: 210px;
+  box-shadow: 10px 10px 34px rgba(0,0,0,.05);
+  border-radius: 10px;
+  border: 2px solid #f7f8fd
+}
+.options1 span {    
+  font-size: 15px;
+  margin: 4px;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.voir_tls_pronos_match , .voir_tls_pronos_scorer  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin:2px auto ;
+    height: 25px;
+    width: 210px;
+    box-shadow: 10px 10px 34px rgba(0,0,0,.05);
+    border-radius: 10px;
+    border: 2px solid #f7f8fd;
+}
+.voir_tls_pronos_match span , .voir_tls_pronos_scorer span {
+  text-transform: capitalize;
+}
+
+.voir_tls_pronos_match span a , .voir_tls_pronos_scorer span a {
+  text-decoration: none;
+  cursor: pointer;
+  color: #f7f8fd;
+}
+
+.voir_tls_pronos_match:hover , .voir_tls_pronos_scorer:hover {
+  background-color:#0E652F;
+}
+
+/*second partie*/
+.phases_de_groupe_pub_concepteur {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 1280px;
+  margin: 20px auto ;
+}
+
+.les_poules {
+  display: flex;
+  flex-wrap: wrap;
+  width: 800px;
+  height: 400px;
+  padding: 10px ;
+  background-image: url(/images/bg-green.png);
+  box-shadow: 10px 10px 34px rgba(0,0,0,.05);
+  border-radius: 10px;
+}
+
+.les_poules div {
+/*margin-left: 20px;
+mar*/
+width:250px;
+height: 20px;
+}
+.table_classement , .table_scorer {
+  color: white;
+  margin-top:20px;
+  width: 250px;
+  height: 20px;
+  line-height: 1.5; 
+  border-collapse: collapse;
+  
+}
+
+th ,tr {
+  border: none;
+  padding: 1px;
+  border: none;
+  border-bottom: 3px solid black;
+  padding: 10px;
+}
+th {
+  vertical-align: top;
+}
+td {
+  border: none;
+  padding: 2px;
+  vertical-align: top;
+}
+
+/**/
+.top_scorer {
+  width: 400px;
+  height: 400px;
+  padding: 10px ;
+  background-image: url(/images/bg-orange.png);
+  box-shadow: 10px 10px 34px rgba(0,0,0,.05);
+  border-radius: 10px;
+  margin: 10px auto;
+}
+.top_scorer h2 {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.table_scorer {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+
+/****************************************/
+
+footer {
+  bottom: 0;
+  width: 100%;
+  background-image: url(/images/bg-green.png);
+}
+/*nos elemenst dans la balise parent pied de page */
+.pied_de_page {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/*limage du pied de page */
+.pied_de_page img {
+  width: 150px;
+  height: 150px;
+}
+/*les div dans notre pied de page */
+.pied_de_page div {
+  display: flex;
+  flex-direction: column;
+}
+
+/*les liens dans nos div */
+.pied_de_page div a {
+          text-decoration: none;
+          color: #f7f8fd;
+          margin-top: 10px;
+} 
+
+/*les liens des div au survol*/
+.pied_de_page div a:hover {
+  color: orange;
+}
+/*lun des textes dans une div de notre pied de page*/
+.pied_de_page div h4 {
+  color: #f7f8fd;
+  text-decoration: underline;
+  margin-bottom: 20px;
+}
+
+/*le developpeur*/
+footer h5 {
+  margin-top: 5px;
+  text-align: center;
+}
+
+
+/*la dpage classement */
+
+.le_classement  {
+  margin-top: 200px;
+  height: 500px;
+  display: flex;
+}
+
+
+.le_classement table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 20px;
+  width: 880px;
+  margin: 20px 50px;
+  box-shadow: 1px 1px 30px rgba(0,0,0,.05);
+  background-image: url(/images/bg-green-2.png);
+  color: white;
+}
+
+.le_classement table th, .le_classement table td {
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.le_classement table tr:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.le_classement table img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.details_joueurs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 50px;
+  width:451px ;
+  height: 400px;
+  border-radius: 10px;
+  margin-left: 20px;
+  box-shadow: 1px 1px 30px rgba(0,0,0,.05);
+  background-image: url(/images/bg-orange.png);
+}
+
+.details_joueurs span img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+}
+
+/*rules pages*/
+
+.rules_page {
+    margin-top: 200px;
+}
+
+
+.rules_page h1 {
+  text-align: center;
+  margin-top: 25%;
+  
+}
+
+/*la page connexion*/
+
+.pour_le_compte {
+margin-top: 200px;
+}
+
+.nos_formulaires {
+  background: url(/images/bg-green-2.png);
+  width: 500px;
+  margin: 10px auto;
+  padding: 20px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10%;
+}
+
+
+input[type="text"],
+input[type="password"] {
+  border-radius: 10px;
+  padding: 10px;
+  border: none;
+  background-color: white;
+}
+
+button {
+  border-radius: 10px;
+  padding: 10px 20px;
+  background-color: orange;
+  color: white;
+  border: none;
+}
